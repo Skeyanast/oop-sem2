@@ -7,9 +7,7 @@ public:
 	eq2();
 	eq2(double, double, double);
 	~eq2();
-	double get_a();
-	double get_b();
-	double get_c();
+	double get_D();
 	void set(double, double, double);
 	void out();
 	double find_X();

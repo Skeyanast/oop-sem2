@@ -22,22 +22,12 @@ eq2::eq2(double a, double b, double c)
 
 eq2::~eq2()
 {
-	cout << "\nУничтожение объекта eq2" << endl;
+	cout << "Уничтожение объекта eq2" << endl << endl;
 }
 
-double eq2::get_a()
+double eq2::get_D()
 {
-	return a;
-}
-
-double eq2::get_b()
-{
-	return b;
-}
-
-double eq2::get_c()
-{
-	return c;
+	return D;
 }
 
 void eq2::set(double a, double b , double c)
@@ -92,6 +82,7 @@ void Inc(eq2&A)
 	A.a+=1;
 	A.b+=1;
 	A.c+=1;
+	A.set(A.a, A.b, A.c);
 }
 
 eq2 eq2::operator+(eq2 &E)

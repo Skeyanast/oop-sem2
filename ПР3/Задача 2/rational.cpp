@@ -17,13 +17,14 @@ rational::rational(int a, int b)
 	}
 	else {
 		while (b == 0) {
-			cout << "Ââåäèòå çíàìåíàòåëü, îòëè÷íûé îò íóëÿ" << endl;
+			cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã§Ã­Ã Ã¬Ã¥Ã­Ã Ã²Ã¥Ã«Ã¼, Ã®Ã²Ã«Ã¨Ã·Ã­Ã»Ã© Ã®Ã² Ã­Ã³Ã«Ã¿" << endl;
 			cin >> b;
 		}
 		this->b = b;
 	}
 
 	if (a > b) {
+		a = a % b;
 		this->a = a % b;
 	}
 	else if (a == b) {
@@ -32,16 +33,22 @@ rational::rational(int a, int b)
 	}
 	else this->a = a;
 
-	if ((b % a == 0) && (a < b)) {
-		int c = b / a;
-		this->a = a / c;
-		this->b = b / c;
+	if (a < b) {
+		for (int i = 1; i < a+1; i++) {
+			if ((a % i == 0) && (b % i == 0) && (i != 1)) {
+				a = a / i;
+				b = b / i;
+				i = 1;
+			}
+		}
+		this->a = a;
+		this->b = b;
 	}
 }
 
 rational::~rational()
 {
-	cout << "\nÓíè÷òîæåíèå îáúåêòà rational" << endl;
+	//cout << "\nÃ“Ã­Ã¨Ã·Ã²Ã®Ã¦Ã¥Ã­Ã¨Ã¥ Ã®Ã¡ÃºÃ¥ÃªÃ²Ã  rational" << endl;
 }
 
 void rational::set(int a, int b)
@@ -51,7 +58,7 @@ void rational::set(int a, int b)
 	}
 	else {
 		while (b == 0) {
-			cout << "Ââåäèòå çíàìåíàòåëü, îòëè÷íûé îò íóëÿ" << endl;
+			cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã§Ã­Ã Ã¬Ã¥Ã­Ã Ã²Ã¥Ã«Ã¼, Ã®Ã²Ã«Ã¨Ã·Ã­Ã»Ã© Ã®Ã² Ã­Ã³Ã«Ã¿" << endl;
 			cin >> b;
 		}
 		this->b = b;

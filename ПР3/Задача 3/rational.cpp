@@ -6,8 +6,8 @@ using namespace std;
 
 rational::rational()
 {
-	a = 666;
-	b = 777;
+	a = 0;
+	b = 1;
 }
 
 rational::rational(int a, int b)
@@ -48,7 +48,7 @@ rational::rational(int a, int b)
 
 rational::~rational()
 {
-	cout << "\nУничтожение объекта rational" << endl;
+	//cout << "\nУничтожение объекта rational" << endl;
 }
 
 void rational::set(int a, int b)

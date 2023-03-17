@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include "rational.h"
 #include <cmath>
 
@@ -17,7 +17,7 @@ rational::rational(int a, int b)
 	}
 	else {
 		while (b == 0) {
-			cout << "Ââåäèòå çíàìåíàòåëü, îòëè÷íûé îò íóëÿ" << endl;
+			cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã§Ã­Ã Ã¬Ã¥Ã­Ã Ã²Ã¥Ã«Ã¼, Ã®Ã²Ã«Ã¨Ã·Ã­Ã»Ã© Ã®Ã² Ã­Ã³Ã«Ã¿" << endl;
 			cin >> b;
 		}
 		this->b = b;
@@ -48,7 +48,7 @@ rational::rational(int a, int b)
 
 rational::~rational()
 {
-	//cout << "\nÓíè÷òîæåíèå îáúåêòà rational" << endl;
+	//cout << "\nÃ“Ã­Ã¨Ã·Ã²Ã®Ã¦Ã¥Ã­Ã¨Ã¥ Ã®Ã¡ÃºÃ¥ÃªÃ²Ã  rational" << endl;
 }
 
 void rational::set(int a, int b)
@@ -58,7 +58,7 @@ void rational::set(int a, int b)
 	}
 	else {
 		while (b == 0) {
-			cout << "Ââåäèòå çíàìåíàòåëü, îòëè÷íûé îò íóëÿ" << endl;
+			cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã§Ã­Ã Ã¬Ã¥Ã­Ã Ã²Ã¥Ã«Ã¼, Ã®Ã²Ã«Ã¨Ã·Ã­Ã»Ã© Ã®Ã² Ã­Ã³Ã«Ã¿" << endl;
 			cin >> b;
 		}
 		this->b = b;
@@ -75,7 +75,7 @@ void rational::set(int a, int b)
 	else this->a = a;
 
 	if (a < b) {
-		for (int i = 1; i < a+1; i++) {
+		for (int i = 1; i < a + 1; i++) {
 			if ((a % i == 0) && (b % i == 0) && (i != 1)) {
 				a = a / i;
 				b = b / i;
@@ -92,14 +92,14 @@ void rational::show()
 	cout << a << "/" << b << endl;
 }
 
-rational rational::operator+(rational &B)
+rational rational::operator+(rational& B)
 {
 	rational temp;
 	int a1 = a;
 	int a2 = B.a;
 	int b1 = b;
 	int b2 = B.b;
-	
+
 	if (b1 != b2) {
 		if (b1 % b2 == 0) {
 			int k = b1 / b2;
@@ -146,7 +146,7 @@ rational& rational::operator++(const int)
 	return temp;
 }
 
-bool rational::operator==(rational &B)
+bool rational::operator==(rational& B)
 {
 	rational temp = *this;
 	temp.set(a, b);
@@ -155,7 +155,7 @@ bool rational::operator==(rational &B)
 	return false;
 }
 
-bool rational::operator>(rational &B)
+bool rational::operator>(rational& B)
 {
 	rational temp = *this;
 	temp.set(a, b);
@@ -178,14 +178,14 @@ bool rational::operator>(rational &B)
 	}
 }
 
-rational& rational::operator=(rational const &B)
+rational& rational::operator=(rational const& B)
 {
 	a = B.a;
 	b = B.b;
 	return *this;
 }
 
-rational operator-(rational &A, rational &B)
+rational operator-(rational& A, rational& B)
 {
 	rational temp;
 	int a1 = A.a;
@@ -226,3 +226,16 @@ rational operator-(rational &A, rational &B)
 	return temp;
 }
 
+ostream& operator<<(ostream& out, rational A)
+{
+	out << "\nÐ§Ð¸ÑÐ»Ð¸Ñ‚ÐµÐ»ÑŒ = " << A.a << "Ð—Ð½Ð°Ð¼ÐµÐ½Ð°Ñ‚ÐµÐ»ÑŒ = " << A.b << endl;
+	return out;
+}
+
+istream& operator>>(istream& in, rational& A)
+{
+	cout << "\nÐ’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ‡Ð¸ÑÐ»Ð¸Ñ‚ÐµÐ»ÑŒ Ð¸ Ð·Ð½Ð°Ð¼ÐµÐ½Ð°Ñ‚ÐµÐ»ÑŒ Ð´Ñ€Ð¾Ð±Ð¸: " << endl;
+	in >> A.a;
+	in >> A.b;
+	return in;
+}

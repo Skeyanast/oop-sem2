@@ -3,8 +3,8 @@
 
 class Truncone : public Cone {
 protected:
-	double xx, yy, zz;
-	double rr;
+	double x, y, z;
+	double r;
 	double nh;
 
 public:

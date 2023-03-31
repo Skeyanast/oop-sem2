@@ -23,8 +23,8 @@ int main()
 	A.Out();
 	B.Out();
 	B.Out_my_Cone();
-	if (C > E) cout << "yes";
-	else cout << "no";
+	if (C > E) cout << "yes" << endl;
+	else cout << "no" << endl;
 
 	return 0;
 }

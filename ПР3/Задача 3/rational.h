@@ -1,6 +1,7 @@
 class rational {
 private:
 	int a, b;
+	friend rational operator-(rational&, rational&);
 public:
 	rational();
 	rational(int, int);
@@ -12,8 +13,5 @@ public:
 	rational& operator++(const int);
 	bool operator==(rational&);
 	bool operator>(rational&);
-	rational& operator=(rational const&);
-	friend rational operator-(rational&, rational&);
-	friend ostream& operator<<(ostream&, rational);
-	friend istream& operator>>(istream&, rational&);
+	rational& operator=(rational const &);
 };
